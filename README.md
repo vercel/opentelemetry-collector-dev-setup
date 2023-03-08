@@ -1,6 +1,6 @@
 # OpenTelemetry Collector Demo
 
-*IMPORTANT:* This is a pre-released version of the OpenTelemetry Collector Contrib.
+_IMPORTANT:_ This is a pre-released version of the OpenTelemetry Collector Contrib.
 
 This demo contains a client and server applications that use the
 opentelemetry Go library for instrumentation and for sending telemetry data
@@ -10,14 +10,9 @@ The client periodically makes http calls to the server which
 create client spans, server spans and metrics that track information like
 number of http requests and latency.
 
-This demo presents the typical flow of observability data with multiple
-OpenTelemetry Collectors deployed:
-
-![](demo-arch.png)
-
 - The client and server send data directly to the OTel Collector;
 - The OTel Collector then sends the data to the appropriate backend, in this demo
- Jaeger, Zipkin, and Prometheus;
+  Jaeger, Zipkin, and Prometheus;
 
 This demo uses `docker-compose` and by default runs against the
 `otel/opentelemetry-collector:0.67.0` image. To run the demo, switch
@@ -36,12 +31,13 @@ The demo exposes the following backends:
 Notes:
 
 - It may take some time for the application metrics to appear on the Prometheus
- dashboard;
+  dashboard;
 
 To clean up any docker container from the demo run `docker-compose down` from
 the `examples/demo` folder.
 
 ### Using a Locally Built Image
+
 Developers interested in running a local build of the Collector need to build a
 docker image using the command below:
 

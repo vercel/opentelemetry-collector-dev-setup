@@ -35,29 +35,6 @@ services:
       - jaeger-all-in-one
       - zipkin-all-in-one
 
-  demo-client:
-    build:
-      dockerfile: Dockerfile
-      context: ./client
-    restart: always
-    environment:
-      - OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317
-      - DEMO_SERVER_ENDPOINT=http://demo-server:7080/hello
-    depends_on:
-      - demo-server
-
-  demo-server:
-    build:
-      dockerfile: Dockerfile
-      context: ./server
-    restart: always
-    environment:
-      - OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317
-    ports:
-      - "7080"
-    depends_on:
-      - otel-collector
-
   prometheus:
     container_name: prometheus
     image: prom/prometheus:latest
