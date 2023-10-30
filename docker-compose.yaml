@@ -7,8 +7,10 @@ services:
     restart: always
     ports:
       - "16686:16686"
+      - "16685:16685"
       - "14268"
       - "14250"
+      - "4317"
 
   # Zipkin
   zipkin-all-in-one:
